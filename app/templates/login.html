@@ -1,0 +1,24 @@
+{% extends 'index.html' %}
+{% block title %} Register {% endblock %}
+{% block content %}
+<h2>Login  User</h2>
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+{% for category,message in messages %}
+<span>{{message}}</span>
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+<form action="{{url_for('auth.login')}}" method="POST">
+  <div>
+    <label for="">Email</label>
+    <input type="text" name="email" id="email">
+  </div>
+  <div>
+    <label for="">Password</label>
+    <input type="password" name="password" id="password">
+  </div>
+  <button>Login</button>
+</form>
+{% endblock %}
